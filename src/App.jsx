@@ -1,10 +1,15 @@
-import './App.css';
+import React from 'react';
+import Home from './components/Home';
+import Layout from './components/Layout';
 
 function App() {
   return (
-    <>
-    hola mundo
-    </>
+    <div>
+      <Layout>
+
+        <Home/>
+      </Layout>
+    </div>
   )
 }
 

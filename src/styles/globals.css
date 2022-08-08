@@ -1,18 +1,4 @@
 
-@font-face { 
-    font-family: NotoSerif; 
-    src: url('./Noto_Serif/NotoSerif-Bold.ttf'); 
-    src: url('./Noto_Serif/NotoSerif-BoldItalic.ttf'); 
-    src: url('./Noto_Serif/NotoSerif-Italic.ttf'); 
-    src: url('./Noto_Serif/NotoSerif-Regular.ttf'); 
-} 
-
-@layer base {
-    html {
-      font-family: NotoSerif;
-    }
-  }
-
 html,
 body {
     height: 100%;
