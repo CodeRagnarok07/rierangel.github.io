@@ -1,9 +1,8 @@
 
 
-const backend = 'http://127.0.0.1:8000/'
+const backend = process.env.REACT_APP_API_URL
 
 export const get = async (path) => {
-
     // const bodyData = JSON.stringify({query,vars})// 
     try {
       const resApi = await fetch(`${backend}${path}`, {

@@ -107,7 +107,7 @@ const SkillsExp = () => {
 
     const [data, setData] = useState()
     useEffect(() => {
-        get('portfolio/skills/').then(res => {
+        get('/portfolio/skills/').then(res => {
             setData(res.success)
         })
 

@@ -1,12 +1,10 @@
-import { useEffect,  useState } from "react"
+import { useEffect, useState } from "react"
 import { get } from '../../lib/fetcher'
-
-
+import displayContent from '../../lib/display'
 const Projects = () => {
 
-    const displayContent = (e) => {
-        return { __html: e }
-    };
+    
+ 
 
     // const data = [
     //     {
@@ -24,23 +22,16 @@ const Projects = () => {
     //         live: "https://twitter-dj-clone.herokuapp.com/",
     //         image: "/img/projects/twitter_clone.png",
     //         color: "1c9797"
-
     //     }
     // ]
 
     const [data, setData] = useState()
     useEffect(() => {
-        get('portfolio/projects/').then(res => {
-            console.log(res);
+        get('/portfolio/projects/').then(res => {
             setData(res.success)
         })
-
     }, [])
 
-    const img = (e)=>{
-        return 
-
-    }
 
     return (
         <div className="border-b">
@@ -60,9 +51,11 @@ const Projects = () => {
 
                             <a href={e.live} rel="noreferrer" target="_blank"
                                 className={`w-full lg:w-2/4  flex overflow-hidden shaodw shadow-md rounded-xl shadow-indigo-500`}>
-                                <img width={"2000%"} height={"1000%"} className="relative w-full h-full object-center object-cover" src={`http://localhost:8000${e.img}`}
-                                    alt={e.name} />
-                                                                </a>
+                                <img
+                                    src={e.img} width={"2000%"} height={"1000%"} alt={e.name}
+                                    className="relative w-full h-full object-center object-cover"
+                                />
+                            </a>
                             <div className='w-full lg:w-1/3 flex flex-col justify-center space-y-6 '>
                                 <div className="mx-4">
                                     <h3 className="text-gray-100 underline-offset-2 underline">
@@ -72,7 +65,7 @@ const Projects = () => {
                                     </h3>
                                 </div>
                                 <div className="mx-auto xl:mx-4 ">
-                                    <p dangerouslySetInnerHTML={displayContent(e.intro)} ></p>
+                                    {displayContent(e.description)}
                                 </div>
                                 <div className="m-2">
                                     <hr />
