@@ -1,29 +1,37 @@
-
+import { useEffect, useState } from "react"
+import { get } from '../../lib/fetcher'
+import displayContent from '../../lib/display'
 const Projects = () => {
 
-    const displayContent = (e) => {
-        return { __html: e }
-    };
+    
+ 
 
-    const data = [
-        {
-            name: "Wordbook ",
-            description: "Asistente de memorización de vocabulario ingles a través de la evaluación de flash-cards con quiz de audio y ortografía y hace uso de algoritmos de repetición espaciada",
-            gitHub: "https://github.com/RagAndRoll/wordbook",
-            live: "https://wordbook-ragandroll.vercel.app",
-            image: "/img/projects/Wordbook.png",
-            color: "744fc9"
-        },
-        {
-            name: "Clon de Twitter con Django",
-            description: "Funcionalidades de registros Follow de usuarios y post Tweets",
-            gitHub: "https://github.com/RagAndRoll/Twitter-Clone-Django",
-            live: "https://twitter-dj-clone.herokuapp.com/",
-            image: "/img/projects/twitter_clone.png",
-            color: "1c9797"
+    // const data = [
+    //     {
+    //         name: "Wordbook ",
+    //         description: "Asistente de memorización de vocabulario ingles a través de la evaluación de flash-cards con quiz de audio y ortografía y hace uso de algoritmos de repetición espaciada",
+    //         gitHub: "https://github.com/RagAndRoll/wordbook",
+    //         live: "https://wordbook-ragandroll.vercel.app",
+    //         image: "/img/projects/Wordbook.png",
+    //         color: "744fc9"
+    //     },
+    //     {
+    //         name: "Clon de Twitter con Django",
+    //         description: "Funcionalidades de registros Follow de usuarios y post Tweets",
+    //         gitHub: "https://github.com/RagAndRoll/Twitter-Clone-Django",
+    //         live: "https://twitter-dj-clone.herokuapp.com/",
+    //         image: "/img/projects/twitter_clone.png",
+    //         color: "1c9797"
+    //     }
+    // ]
 
-        }
-    ]
+    const [data, setData] = useState()
+    useEffect(() => {
+        get('/portfolio/projects/').then(res => {
+            setData(res.success)
+        })
+    }, [])
+
 
     return (
         <div className="border-b">
@@ -34,7 +42,7 @@ const Projects = () => {
             <div className="w-full mb-16">
 
                 <div className="flex flex-col space-y-24">
-                    {data.map((e, i) => (
+                    {data && data.map((e, i) => (
                         <div key={i}
                             className={`flex flex-col md:mx-24 lg:mx-0 justify-around
                          items-center md:px-8 text-center 
@@ -43,8 +51,10 @@ const Projects = () => {
 
                             <a href={e.live} rel="noreferrer" target="_blank"
                                 className={`w-full lg:w-2/4  flex overflow-hidden shaodw shadow-md rounded-xl shadow-indigo-500`}>
-                                <img width={"2000%"} height={"1000%"} className="relative w-full h-full object-center object-cover" src={e.image}
-                                    alt={e.name} />
+                                <img
+                                    src={e.img} width={"2000%"} height={"1000%"} alt={e.name}
+                                    className="relative w-full h-full object-center object-cover"
+                                />
                             </a>
                             <div className='w-full lg:w-1/3 flex flex-col justify-center space-y-6 '>
                                 <div className="mx-4">
@@ -55,7 +65,7 @@ const Projects = () => {
                                     </h3>
                                 </div>
                                 <div className="mx-auto xl:mx-4 ">
-                                    <p dangerouslySetInnerHTML={displayContent(e.description)} ></p>
+                                    {displayContent(e.description)}
                                 </div>
                                 <div className="m-2">
                                     <hr />
