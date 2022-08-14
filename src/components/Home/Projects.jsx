@@ -1,36 +1,17 @@
 import { useEffect, useState } from "react"
 import { get } from '../../lib/fetcher'
-import displayContent from '../../lib/display'
+import { useQuery } from "@tanstack/react-query"
+
+
 const Projects = () => {
 
-    
- 
-
-    // const data = [
-    //     {
-    //         name: "Wordbook ",
-    //         description: "Asistente de memorización de vocabulario ingles a través de la evaluación de flash-cards con quiz de audio y ortografía y hace uso de algoritmos de repetición espaciada",
-    //         gitHub: "https://github.com/RagAndRoll/wordbook",
-    //         live: "https://wordbook-ragandroll.vercel.app",
-    //         image: "/img/projects/Wordbook.png",
-    //         color: "744fc9"
-    //     },
-    //     {
-    //         name: "Clon de Twitter con Django",
-    //         description: "Funcionalidades de registros Follow de usuarios y post Tweets",
-    //         gitHub: "https://github.com/RagAndRoll/Twitter-Clone-Django",
-    //         live: "https://twitter-dj-clone.herokuapp.com/",
-    //         image: "/img/projects/twitter_clone.png",
-    //         color: "1c9797"
-    //     }
-    // ]
-
-    const [data, setData] = useState()
+    const { status, data, error, isFetching } = useQuery(["projects"], async ()=> get('/portfolio/projects/'));
+    const [obj, setObject] = useState()
     useEffect(() => {
-        get('/portfolio/projects/').then(res => {
-            setData(res.success)
-        })
-    }, [])
+        if(!isFetching){
+            setObject(data.success)
+        }
+    }, [isFetching])
 
 
     return (
@@ -42,7 +23,7 @@ const Projects = () => {
             <div className="w-full mb-16">
 
                 <div className="flex flex-col space-y-24">
-                    {data && data.map((e, i) => (
+                    {obj && obj.map((e, i) => (
                         <div key={i}
                             className={`flex flex-col md:mx-24 lg:mx-0 justify-around
                          items-center md:px-8 text-center 
@@ -65,7 +46,7 @@ const Projects = () => {
                                     </h3>
                                 </div>
                                 <div className="mx-auto xl:mx-4 ">
-                                    {displayContent(e.description)}
+                                   {e.intro}
                                 </div>
                                 <div className="m-2">
                                     <hr />

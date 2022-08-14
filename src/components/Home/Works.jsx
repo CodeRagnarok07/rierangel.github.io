@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react"
 import { get } from "src/lib/fetcher"
+import { useQuery } from "@tanstack/react-query"
 
-const LayoutProjects = () => {
+const Works = () => {
 
     // const data = [
     //     {
@@ -33,21 +34,23 @@ const LayoutProjects = () => {
     //     }
     //   ]
 
-    const [data, setData] = useState()
+
+    const { status, data, error, isFetching } = useQuery(["works"], async ()=> get('/portfolio/works/'));
+    const [obj, setObject] = useState()
     useEffect(() => {
-        get('/portfolio/works/').then(res => {
-            setData(res.success)
-        })
+        if(!isFetching){
+            setObject(data.success)
+        }
+    }, [isFetching])
 
-    }, [])
-
+    const Let =()=> console.log("sadas")
     return (
         <div className="border-b pb-5">
             <h1 className="py-5 text-center mb-6 underline leading-[4rem] mx-4 ">
-                Proyectos de maquetación
+                Trabajo reciente
             </h1>
-            <div className='grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-10 mx-[5%] h-[45rem]'>
-                {data && data.map((e, i) => (
+            <div className='grid grid-cols-1 lg:grid-cols-2 gap-5 lg:gap-10 mx-[5%] h-[45rem]'>
+                {obj && obj.map((e, i) => (
                     <div key={i} className='relative group overflow-hidden'  >
                         <div style={{ backgroundImage: `url("${e.img}")` }}
                             className="rotation-1 h-full w-auto min-w-full
@@ -82,4 +85,4 @@ const LayoutProjects = () => {
     )
 }
 
-export default LayoutProjects
+export default Works

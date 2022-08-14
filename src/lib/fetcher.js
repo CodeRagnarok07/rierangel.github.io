@@ -3,7 +3,6 @@
 const backend = process.env.REACT_APP_API_URL
 
 export const get = async (path) => {
-    console.log(process.env.REACT_APP_API_URL)
     // const bodyData = JSON.stringify({query,vars})// 
     try {
       const resApi = await fetch(`${backend}${path}`, {
