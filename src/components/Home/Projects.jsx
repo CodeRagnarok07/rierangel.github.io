@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react"
 import { get } from '../../lib/fetcher'
 import { useQuery } from "@tanstack/react-query"
-
+import { Link } from "react-router-dom"
+import slugify from '../../lib/slugify'
 
 const Projects = () => {
 
@@ -9,7 +10,7 @@ const Projects = () => {
     const [obj, setObject] = useState()
     useEffect(() => {
         if(!isFetching){
-            setObject(data.success)
+            setObject(data)
         }
     }, [isFetching])
 
@@ -29,14 +30,14 @@ const Projects = () => {
                          items-center md:px-8 text-center 
                          ${((i / 2) % 1 === 0) === true ? "lg:flex-row lg:text-left" : "lg:flex-row-reverse lg:text-right"}`}
                         >
-
-                            <a href={e.live} rel="noreferrer" target="_blank"
+                            
+                            <Link to={`projects/${slugify(e.name)}~${e.id}/`} rel="noreferrer" 
                                 className={`w-full lg:w-2/4  flex overflow-hidden shaodw shadow-md rounded-xl shadow-indigo-500`}>
                                 <img
                                     src={e.img} width={"2000%"} height={"1000%"} alt={e.name}
                                     className="relative w-full h-full object-center object-cover"
                                 />
-                            </a>
+                            </Link>
                             <div className='w-full lg:w-1/3 flex flex-col justify-center space-y-6 '>
                                 <div className="mx-4">
                                     <h3 className="text-gray-100 underline-offset-2 underline">

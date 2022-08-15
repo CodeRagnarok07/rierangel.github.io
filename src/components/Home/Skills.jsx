@@ -10,7 +10,7 @@ const SkillsExp = () => {
     const [obj, setObject] = useState()
     useEffect(() => {
         if(!isFetching){
-            setObject(data.success)
+            setObject(data)
         }
     }, [isFetching])
 

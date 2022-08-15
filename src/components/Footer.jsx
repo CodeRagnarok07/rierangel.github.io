@@ -15,7 +15,7 @@ const Footer = () => {
 
         },
         {
-            "link": "https://github.com/Angel7dv",
+            "link": "https://github.com/RierAngel",
             "icon": <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" role="img" aria-labelledby="asc7k54g3imv97jyznr07r04x7meqrmx" ><title id="asc7k54g3imv97jyznr07r04x7meqrmx">github website</title>
                 <path d="M12 2C6.475 2 2 6.475 2 12a9.994 9.994 0 006.838 9.488c.5.087.687-.213.687-.476 0-.237-.013-1.024-.013-1.862-2.512.463-3.162-.612-3.362-1.175-.113-.288-.6-1.175-1.025-1.413-.35-.187-.85-.65-.013-.662.788-.013 1.35.725 1.538 1.025.9 1.512 2.338 1.087 2.912.825.088-.65.35-1.087.638-1.337-2.225-.25-4.55-1.113-4.55-4.938 0-1.088.387-1.987 1.025-2.688-.1-.25-.45-1.275.1-2.65 0 0 .837-.262 2.75 1.026a9.28 9.28 0 012.5-.338c.85 0 1.7.112 2.5.337 1.912-1.3 2.75-1.024 2.75-1.024.55 1.375.2 2.4.1 2.65.637.7 1.025 1.587 1.025 2.687 0 3.838-2.337 4.688-4.562 4.938.362.312.675.912.675 1.85 0 1.337-.013 2.412-.013 2.75 0 .262.188.574.688.474A10.016 10.016 0 0022 12c0-5.525-4.475-10-10-10z"
                 ></path>
@@ -41,9 +41,11 @@ const Footer = () => {
 
 
     return (
-        <footer className='border-t border-slate-400 bg-gradient-to-t from-slate-900 to-gray-900  flex flex-col-reverse md:flex-row justify-between md:py-3 md:px-24'>
-            <a className='w-full md:flex py-1 md:py-0 underline text-center md:text-left ' href="https://github.com/Angel7dv" target="__blank">
-                ©2022 Angel7dev. All rights reserved.
+        <footer className='
+        relative inset-x-0 bottom-0
+         border-t border-slate-400 bg-gradient-to-t from-slate-900 to-gray-900  flex flex-col-reverse md:flex-row justify-between md:py-3 md:px-24'>
+            <a className='w-full md:flex py-1 md:py-0 underline text-center md:text-left ' href="https://github.com/rierangel" target="__blank">
+                ©2022 RierAngel. All rights reserved.
             </a>
             <div className='flex justify-center items-center py-1 md:py-0 md:justify-end shadow md:shadow-none shadow-white md:border-l md:mx-3 '>
                 {icons.map((e, i) => (

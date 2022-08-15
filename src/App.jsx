@@ -1,8 +1,7 @@
 import React from 'react';
-import Home from './components/Home';
-import Layout from './components/Layout';
-import { Routes, Route } from "react-router-dom";
 
+import Layout from './components/Layout';
+import Pages from './Pages'
 
 
 function App() {
@@ -10,12 +9,9 @@ function App() {
     <>
       <Layout>
 
-        <Routes>
-          <Route path="/" element={<Home />} />
-        </Routes>
 
+        <Pages/>
       </Layout>
-
     </>
   )
 }

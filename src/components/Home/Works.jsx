@@ -39,11 +39,10 @@ const Works = () => {
     const [obj, setObject] = useState()
     useEffect(() => {
         if(!isFetching){
-            setObject(data.success)
+            setObject(data)
         }
     }, [isFetching])
 
-    const Let =()=> console.log("sadas")
     return (
         <div className="border-b pb-5">
             <h1 className="py-5 text-center mb-6 underline leading-[4rem] mx-4 ">
