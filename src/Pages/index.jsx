@@ -1,7 +1,7 @@
 import React from 'react'
-import Home from '../components/Home';
+import Home from 'src/components/Home';
 import { Routes, Route } from "react-router-dom";
-import PortfolioDetails from '../components/PortfolioDetails'
+import PortfolioDetails from 'src/components/PortfolioDetails'
 
 export default function index() {
     return (

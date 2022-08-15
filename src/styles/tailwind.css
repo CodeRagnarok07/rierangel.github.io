@@ -17,13 +17,6 @@
     }
   }
 
-.animation{
-    @apply animate-bounce delay-300 
-}
-
-.rotation-1{
-    @apply group-hover:scale-110 group-hover:rotate-6 transition ease-out delay-200 duration-500
-}
 
 h1, 
 .h1{

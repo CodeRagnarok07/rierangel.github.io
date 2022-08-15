@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react"
-import { get } from '../../lib/fetcher'
+import { get } from 'src/lib/fetcher'
 import { useQuery } from "@tanstack/react-query"
 import { Link } from "react-router-dom"
-import slugify from '../../lib/slugify'
+import slugify from 'src/lib/slugify'
 
 const Projects = () => {
 

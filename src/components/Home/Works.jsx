@@ -1,6 +1,9 @@
 import { useEffect, useState } from "react"
-import { get } from "src/lib/fetcher"
 import { useQuery } from "@tanstack/react-query"
+import { Link } from "react-router-dom"
+
+import { get } from "src/lib/fetcher"
+import slugify from 'src/lib/slugify'
 
 const Works = () => {
 
@@ -35,22 +38,26 @@ const Works = () => {
     //   ]
 
 
-    const { status, data, error, isFetching } = useQuery(["works"], async ()=> get('/portfolio/works/'));
+    const { status, data, error, isFetching } = useQuery(["works"], async () => get('/portfolio/works/'));
     const [obj, setObject] = useState()
     useEffect(() => {
-        if(!isFetching){
+        if (!isFetching) {
             setObject(data)
         }
     }, [isFetching])
 
     return (
         <div className="border-b pb-5">
+
             <h1 className="py-5 text-center mb-6 underline leading-[4rem] mx-4 ">
                 Trabajo reciente
             </h1>
+
             <div className='grid grid-cols-1 lg:grid-cols-2 gap-5 lg:gap-10 mx-[5%] h-[45rem]'>
                 {obj && obj.map((e, i) => (
-                    <div key={i} className='relative group overflow-hidden'  >
+
+                    <Link to={`works/${slugify(e.name)}~${e.id}/`} rel="noreferrer" key={i} className='relative group overflow-hidden' >
+
                         <div style={{ backgroundImage: `url("${e.img}")` }}
                             className="rotation-1 h-full w-auto min-w-full
                                     bg-cover bg-center bg-no-repeat
@@ -59,13 +66,11 @@ const Works = () => {
                                 <img className='rotation-1 w-full'
                                     src={e.image} alt="" />
                             </div> */}
+
                         <div className='absolute  top-0 bottom-0 right-0 left-0
                         flex items-center justify-around 
-                        
                         bg-black text-white
                         bg-opacity-50 opacity-0 group-hover:opacity-100 group-hover:brightness-100'>
-
-
 
                             {/* <a className="px-6 py-2 bg-gray-900 text-gray-200 border rounded group-hover:bg-gray-800"
                                 href={e.gitHub} target="__blank" >GitHub</a> */}
@@ -75,7 +80,7 @@ const Works = () => {
                                 ver
                             </a>
                         </div>
-                    </div>
+                    </Link>
 
 
                 ))}

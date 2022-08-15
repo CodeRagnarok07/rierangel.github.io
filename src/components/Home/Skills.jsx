@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react"
-import { get } from '../../lib/fetcher'
+import { get } from 'src/lib/fetcher'
 import { useQuery } from "@tanstack/react-query"
 
 const SkillsExp = () => {

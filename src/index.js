@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client';
 import './styles/globals.css'
 import './styles/tailwind.css'
 import './styles/textStyle.css';
+import './styles/animations.css';
 
 
 import App from './App';

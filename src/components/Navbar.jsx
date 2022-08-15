@@ -12,7 +12,7 @@ const Navbar = () => {
 
 
     return (
-        <nav className='relative bg-slate-900 flex flex-col md:flex-row shadow-sm shadow-slate-600 md:py-2 md:px-8'>
+        <nav className='relative bg-slate-900 flex flex-col md:flex-row shadow-sm shadow-slate-600 border-b-1 border-b-gray-300  md:py-2 md:px-8'>
             <div className='pr-5 md:border-r shadow shadow-white md:shadow-none text-center'>
                 <Link to={'/'} className='mx-5' >
                     <strong className='logo-text italic -ml-[0.2rem] -mr-[0.0rem]'>
