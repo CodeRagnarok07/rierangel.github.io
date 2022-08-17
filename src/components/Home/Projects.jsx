@@ -11,6 +11,7 @@ const Projects = () => {
     useEffect(() => {
         if(!isFetching){
             setObject(data)
+            console.log(data)
         }
     }, [isFetching])
 

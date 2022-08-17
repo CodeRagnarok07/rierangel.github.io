@@ -75,10 +75,7 @@ const Works = () => {
                             {/* <a className="px-6 py-2 bg-gray-900 text-gray-200 border rounded group-hover:bg-gray-800"
                                 href={e.gitHub} target="__blank" >GitHub</a> */}
 
-                            <a className="px-6 py-2 text-xl bg-gray-300 text-white rounded group-hover:bg-transparent border border-white"
-                                href={e.live} target="__blank">
-                                ver
-                            </a>
+                      
                         </div>
                     </Link>
 
