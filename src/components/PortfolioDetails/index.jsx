@@ -37,10 +37,9 @@ export default function Index() {
         <img src={obj.img} alt={obj.name} />
       </div>
 
-      <div className='w-[70%] mx-auto'>
+      <div className='w-[70%] mx-auto h-full'>
         <h1 className=''>{obj.name}</h1>
-
-        <article dangerouslySetInnerHTML={{ __html: obj.description }}></article>
+        <p dangerouslySetInnerHTML={{ __html: obj.description }}></p>
 
       </div>
 

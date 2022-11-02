@@ -59,7 +59,7 @@ const SkillsExp = () => {
                                 '>
                                     <div className='flex flex-col items-center'>
                                         <h3 className='underline mb-2'>{e.name}</h3>
-                                        <article dangerouslySetInnerHTML={{ __html: e.description }} />
+                                        <p dangerouslySetInnerHTML={{ __html: e.description }} />
                                     </div>
                                 </div>
                             </div>

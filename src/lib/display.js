@@ -4,7 +4,7 @@
     // const html = e.replace(/(src\s*=\s*["'])/g, `src="${process.env.REACT_APP_API_URL}`);
 
 
-    const article = <article dangerouslySetInnerHTML={{ __html: e }} ></article>
+    const article = <p dangerouslySetInnerHTML={{ __html: e }} ></p>
     return article
 };
 
